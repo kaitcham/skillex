@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed w-full top-0 left-0 z-10">
-      <div className="container mx-auto flex items-center justify-between px-2 py-4">
+      <div className="container mx-auto flex items-center justify-between px-2 py-4 md:px-4 lg:px-0 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl">
         <div className="flex items-center gap-4">
           <HiMenuAlt1
             size={30}
