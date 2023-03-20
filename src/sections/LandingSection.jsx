@@ -4,7 +4,7 @@ import { logos } from '../utils/data';
 
 const LandingSection = () => {
   return (
-    <section>
+    <section id="home">
       <div className="flex flex-col sm:pb-10 sm:flex-row justify-center items-center gap-5 ">
         <div className="mt-3 sm:mt-0">
           <div className="">
