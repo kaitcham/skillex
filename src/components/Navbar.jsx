@@ -6,6 +6,7 @@ import { HiMenuAlt1, HiX } from 'react-icons/hi';
 const Navbar = () => {
   let menuRef = React.useRef();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [activeScroll, setActiveScroll] = React.useState(null);
 
   React.useEffect(() => {
     const handleClickOutside = (e) => {
@@ -13,15 +14,26 @@ const Navbar = () => {
         setIsMenuOpen(false);
       }
     };
+
+    const checkScroll = () => {
+      setActiveScroll(window.scrollY);
+    };
+
+    window.addEventListener('scroll', checkScroll);
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
+      window.removeEventListener('scroll', checkScroll);
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, activeScroll]);
 
   return (
-    <div className="fixed w-full top-0 left-0 z-10">
-      <div className="container mx-auto flex items-center justify-between px-2 py-4 md:px-4 lg:px-0 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl">
+    <div
+      className={`${
+        activeScroll ? 'bg-solitude shadow py-3 md:py-2' : 'py-4'
+      } fixed w-full top-0 left-0 z-10`}
+    >
+      <div className="container mx-auto flex items-center justify-between px-2 md:px-4 lg:px-0 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl">
         <div className="flex items-center gap-4">
           <HiMenuAlt1
             size={30}
@@ -74,6 +86,7 @@ const Navbar = () => {
                 to={link.path}
                 smooth={true}
                 duration={500}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-white text-lg cursor-pointer tracking-wide"
               >
                 {link.name}
