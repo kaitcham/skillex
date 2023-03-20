@@ -32,7 +32,7 @@ const LandingSection = () => {
           <img src={hero} alt="" className="h-auto w-full object-cover" />
         </div>
       </div>
-      <div className="mt-5">
+      <div>
         <p className="text-center text-gray text-lg md:text-xl">
           We collaborate with{' '}
           <span className="text-teal">
