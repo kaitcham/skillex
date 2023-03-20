@@ -1,11 +1,12 @@
 import React from 'react';
 import { Navbar } from './components/_index';
-import { LandingSection } from './sections/_index';
+import { AboutSection, LandingSection } from './sections/_index';
 
 const App = () => (
   <div className="bg-solitude font-Poppins">
     <Navbar />
     <LandingSection />
+    <AboutSection />
   </div>
 );
 
